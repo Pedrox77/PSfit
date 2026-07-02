@@ -1,0 +1,1 @@
+export function LocationPicker(){return <label className="block text-sm">Location<input name="location" placeholder="Optional location" className="mt-2 w-full rounded-xl border border-white/10 bg-[#101512] px-4 py-3"/></label>}

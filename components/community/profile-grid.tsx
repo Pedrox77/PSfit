@@ -1,0 +1,6 @@
+import type { CommunityPost } from "@/types/database";
+import { PostCard } from "./post-card";
+import { EmptyFeed } from "./empty-feed";
+import Image from "next/image";
+import { BadgeCheck, Images, Play } from "lucide-react";
+export function ProfileGrid({posts}:{posts:CommunityPost[];viewerId?:string}){if(!posts.length)return <EmptyFeed mode="profile"/>;return <div className="grid grid-cols-3 gap-0.5">{posts.map(post=><a href={`/community/post/${post.id}`} key={post.id} className="relative aspect-square overflow-hidden bg-white/[.04]">{post.media?.[0]?.signed_url?<>{post.media[0].media_type==="image"?<Image unoptimized fill sizes="33vw" className="object-cover" src={post.media[0].signed_url} alt={post.media[0].alt_text??"Post preview"}/>:<video muted preload="metadata" className="h-full w-full object-cover" src={post.media[0].signed_url}/>}<span className="absolute right-2 top-2 drop-shadow">{post.media[0].media_type==="video"?<Play size={16}/>:post.media.length>1?<Images size={16}/>:null}</span></>:<span className="grid h-full place-items-center p-3 text-center text-xs text-muted">{post.caption?.slice(0,70)??"PSFIT post"}</span>}{post.is_verified_workout&&<BadgeCheck className="absolute bottom-2 right-2 text-acid drop-shadow" size={17}/>}</a>)}</div>}

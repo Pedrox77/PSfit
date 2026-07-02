@@ -1,0 +1,6 @@
+import { ActivityList } from "@/components/community/activity-list";
+import { markActivityRead } from "@/app/community/actions";
+import { createClient } from "@/lib/supabase/server";
+import type { CommunityProfile, Notification } from "@/types/database";
+export const metadata={title:"Community activity"};
+export default async function Page(){const supabase=await createClient();const {data:auth}=await supabase.auth.getUser();const {data:rows}=await supabase.from("notifications").select("*").order("created_at",{ascending:false}).limit(50);const actors=[...new Set((rows??[]).map(x=>String(x.actor_id)).filter(Boolean))];const {data:profiles}=actors.length?await supabase.from("profiles").select("*").in("id",actors):{data:[]};const map=new Map((profiles??[]).map(p=>[String(p.id),p as unknown as CommunityProfile]));const items=(rows??[]).map(n=>({...n,actor:map.get(String(n.actor_id))})) as unknown as Notification[];const unread=items.filter(x=>!x.read_at).length;void auth;return <><header className="flex items-center justify-between border-b border-white/[.09] p-5"><div><h1 className="text-xl font-semibold">Activity</h1><p className="mt-1 text-xs text-muted">{unread} unread</p></div>{unread>0&&<form action={markActivityRead}><button className="text-sm font-semibold text-acid">Mark all as read</button></form>}</header><ActivityList items={items}/></>}

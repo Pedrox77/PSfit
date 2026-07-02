@@ -1,0 +1,2 @@
+import { SpotifyTrackCard } from "./spotify-track-card";
+export function ProfileSong({url,title,artist,artwork}:{url:string;title:string;artist?:string|null;artwork?:string|null}){return <section className="mt-5"><p className="mb-2 text-xs font-semibold uppercase tracking-widest text-muted">Profile anthem</p><SpotifyTrackCard music={{url,title,artist:artist??null,artworkUrl:artwork??null,embedUrl:url.includes("open.spotify.com")?url.replace("open.spotify.com/","open.spotify.com/embed/"):null,provider:"spotify"}}/></section>}

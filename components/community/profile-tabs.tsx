@@ -1,0 +1,1 @@
+export function ProfileTabs(){return <nav className="grid grid-cols-6 overflow-x-auto border-b border-white/[.09] text-center text-[11px] text-muted">{["Posts","Videos","Workouts","Progress","Tagged","Saved"].map((x,i)=><button key={x} className={`min-w-16 py-4 ${i===0?"border-b-2 border-acid text-paper":""}`}>{x}</button>)}</nav>}

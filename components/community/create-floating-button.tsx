@@ -1,0 +1,6 @@
+"use client";
+import { Dumbbell,FileText,Image as ImageIcon,Plus,Salad,TrendingUp,Video,X } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
+const options=[["Photo","photo",ImageIcon],["Video","video",Video],["Workout","workout",Dumbbell],["Progress","progress",TrendingUp],["Meal","meal",Salad],["Text update","text",FileText]] as const;
+export function CreateFloatingButton(){const [open,setOpen]=useState(false);return <div className="fixed bottom-[calc(4.75rem+env(safe-area-inset-bottom))] right-4 z-40 md:hidden">{open&&<><button aria-label="Close create menu" onClick={()=>setOpen(false)} className="fixed inset-0 -z-10 bg-black/40"/><div className="mb-3 w-44 overflow-hidden rounded-2xl border border-white/10 bg-[#0a0e0b]/95 p-2 shadow-2xl backdrop-blur-xl">{options.map(([label,type,Icon])=><Link key={type} href={`/community/create?type=${type}`} className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-xs hover:bg-white/[.05]"><Icon size={16} className="text-aqua"/>{label}</Link>)}</div></>}<button onClick={()=>setOpen(!open)} aria-expanded={open} className="ml-auto grid h-14 w-14 place-items-center rounded-2xl bg-acid text-ink shadow-[0_8px_30px_rgba(168,255,42,.22)] transition active:scale-95">{open?<X/>:<Plus/>}</button></div>}

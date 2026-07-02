@@ -1,0 +1,2 @@
+import AppShell from"@/components/app-shell";import{PhotoImporter}from"@/components/training/photo-importer";import{createClient}from"@/lib/supabase/server";import{redirect}from"next/navigation";
+export default async function ImportPhoto(){const db=await createClient();const{data:{user}}=await db.auth.getUser();if(!user)redirect("/login");return <AppShell><PhotoImporter userId={user.id}/></AppShell>}

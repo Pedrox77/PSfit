@@ -1,0 +1,1 @@
+import { PsfitLoader } from "@/components/ui/psfit-loader"; export default function Loading(){return <div className="grid min-h-screen place-items-center"><PsfitLoader label="Preparing workout..."/></div>}

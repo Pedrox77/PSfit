@@ -1,0 +1,7 @@
+"use client";
+import type { CommunityProfile } from "@/types/database";
+import { Activity,Compass,Home,Plus } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { UserAvatar } from "./user-avatar";
+export function MobileAppNavigation({profile}:{profile?:CommunityProfile|null}){const path=usePathname();const items=[["/community","Home",Home],["/community/explore","Explore",Compass],["/community/create","Create",Plus],["/community/activity","Activity",Activity]] as const;const profileHref=`/u/${profile?.username??"me"}`;return <nav className="fixed inset-x-0 bottom-0 z-50 grid h-[calc(4.1rem+env(safe-area-inset-bottom))] grid-cols-5 border-t border-white/[.07] bg-black/95 px-1 pb-[env(safe-area-inset-bottom)] backdrop-blur-xl md:hidden">{items.map(([href,label,Icon])=>{const active=path===href||(href==="/community"&&path==="/community/following");return <Link key={href} href={href} className={`flex min-w-0 flex-col items-center justify-center gap-1 text-[9px] ${active?"text-acid":"text-muted"}`}><Icon size={19} strokeWidth={active?2.5:1.8}/><span>{label}</span></Link>})}<Link href={profileHref} className={`flex min-w-0 flex-col items-center justify-center gap-1 text-[9px] ${path===profileHref?"text-acid":"text-muted"}`}><UserAvatar src={profile?.avatar_url} name={profile?.full_name} username={profile?.username} size="xs"/><span>Profile</span></Link></nav>}

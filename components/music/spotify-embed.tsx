@@ -1,0 +1,1 @@
+export function SpotifyEmbed({url}:{url:string}){return <iframe title="Spotify embed" src={url} width="100%" height="152" loading="lazy" allow="encrypted-media" className="mt-3 rounded-xl border-0"/>}

@@ -1,0 +1,3 @@
+import type { PostComment } from "@/types/database";
+import { UserAvatar } from "./user-avatar";
+export function CommentItem({comment}:{comment:PostComment}){return <article className="flex gap-3 border-b border-white/[.08] py-4"><UserAvatar src={comment.author?.avatar_url} name={comment.author?.full_name} username={comment.author?.username} size="sm"/><div><p className="text-sm"><b className="mr-2">@{comment.author?.username??"athlete"}</b>{comment.body}</p><p className="mt-2 text-xs text-muted">{new Date(comment.created_at).toLocaleDateString("en-US")} · Reply · {comment.like_count} likes</p></div></article>}

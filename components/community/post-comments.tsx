@@ -1,0 +1,1 @@
+export function PostComments({count,postId}:{count:number;postId:string}){return count?<a href={`/community/post/${postId}#comments`} className="block px-4 pb-4 text-sm text-muted">View all {count} comments</a>:null}

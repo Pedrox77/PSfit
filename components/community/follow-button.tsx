@@ -1,0 +1,1 @@
+export function FollowButton({status,onClick}:{status:"idle"|"pending"|"accepted";onClick:()=>void}){return <button onClick={onClick} disabled={status!=="idle"} className="flex-1 rounded-full bg-acid py-2 text-sm font-bold text-ink disabled:bg-white/10 disabled:text-muted">{status==="idle"?"Follow":status==="pending"?"Requested":"Following"}</button>}

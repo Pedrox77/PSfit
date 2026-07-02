@@ -1,0 +1,2 @@
+import { PsfitLoader } from "@/components/ui/psfit-loader";
+export default function Loading(){return <div><div className="flex h-20 items-center justify-center border-b border-white/[.09]"><PsfitLoader size="sm" label="Loading your community..."/></div><div className="animate-pulse">{[1,2,3].map(x=><div key={x} className="border-b border-white/[.09] p-4"><div className="h-10 w-40 rounded-full bg-white/[.06]"/><div className="mt-4 aspect-square rounded-2xl bg-white/[.04]"/></div>)}</div></div>}

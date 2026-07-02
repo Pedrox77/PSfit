@@ -1,0 +1,3 @@
+import type { SpotifySearchItem } from "@/lib/spotify/server";
+import Image from "next/image";
+export function MusicResult({item,onAdd}:{item:SpotifySearchItem;onAdd:(item:SpotifySearchItem)=>void}){return <div className="flex items-center gap-3 rounded-xl p-2 hover:bg-white/[.04]">{item.artworkUrl&&<Image unoptimized src={item.artworkUrl} width={48} height={48} className="rounded-md object-contain" alt="Spotify artwork"/>}<div className="min-w-0 flex-1"><p className="truncate text-sm font-semibold">{item.title}</p><p className="truncate text-xs text-muted">{item.artist} · {item.album}</p></div><button type="button" onClick={()=>onAdd(item)} className="rounded-full border border-acid/30 px-3 py-1 text-xs text-acid">Add</button></div>}

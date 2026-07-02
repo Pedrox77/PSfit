@@ -1,0 +1,3 @@
+"use client";
+import { X } from "lucide-react";
+export function CommentSheet({open,onClose,children}:{open:boolean;onClose:()=>void;children:React.ReactNode}){if(!open)return null;return <div className="fixed inset-0 z-50 overflow-hidden bg-black/60 md:grid md:place-items-center md:p-5"><section className="absolute inset-x-0 bottom-0 max-h-[85dvh] w-full overflow-y-auto overscroll-contain rounded-t-3xl bg-[#101512] p-4 pb-[max(1rem,env(safe-area-inset-bottom))] md:relative md:max-h-[80dvh] md:w-full md:max-w-[560px] md:rounded-3xl md:p-5"><button aria-label="Close comments" onClick={onClose} className="float-right grid size-11 place-items-center"><X/></button><h2 className="text-lg font-semibold">Comments</h2><div className="mt-5">{children}</div></section></div>}
