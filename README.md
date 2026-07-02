@@ -288,6 +288,7 @@ Estudante de Engenharia de Software e desenvolvedor responsável pela criação,
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Pedro%20Samuel-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/pedro-samuel-2a8939213/)
 
 </div>
+
 ## Licença
 
 Este projeto é de uso privado.
