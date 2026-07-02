@@ -275,12 +275,19 @@ A interface prioriza uma boa experiência no celular, principalmente durante a e
 - [ ] Integração com dispositivos inteligentes
 - [ ] Relatórios avançados de desempenho
 
-## Autor
+## Desenvolvedor
 
-Desenvolvido por **Pedro Samuel**.
+<div align="center">
 
-Projeto criado com o objetivo de unir tecnologia, inteligência artificial, saúde, nutrição e desempenho físico em uma plataforma moderna.
+### Pedro Samuel
 
+Estudante de Engenharia de Software e desenvolvedor responsável pela criação, arquitetura, interface e implementação do **PSFit**.
+
+[![GitHub](https://img.shields.io/badge/GitHub-Pedrox77-181717?style=for-the-badge&logo=github)](https://github.com/Pedrox77)
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Pedro%20Samuel-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/pedro-samuel-2a8939213/)
+
+</div>
 ## Licença
 
 Este projeto é de uso privado.
